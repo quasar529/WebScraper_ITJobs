@@ -15,8 +15,8 @@ def extract_jobs(url):
         name=i.select_one('div[class=body]>dl>dd')
         job={
             'title':title,
-            'link':link,
-            'name':name.text
+            'name':name.text,
+            'link':link
         }
         #print(job)
         jobs.append(job)
