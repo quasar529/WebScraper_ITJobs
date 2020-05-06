@@ -21,4 +21,4 @@ def report():
     return render_template('report.html',
     searchingBy=word,jobs=jobs,resultNum=len(jobs))
 
-app.run()
+app.run(host='127.0.0.1')
