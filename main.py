@@ -10,7 +10,7 @@ from save import save_to_file
 app=Flask('esc_scraper')
 @app.route('/quasar529.github.io/WebScraper_ITJobs/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/quasar529.github.io/WebScraper_ITJobs/report')
 def report():
@@ -20,5 +20,5 @@ def report():
         jobs=get_saramin_jobs(word)
     return render_template('report.html',
     searchingBy=word,jobs=jobs,resultNum=len(jobs))
-    
+
 app.run()
