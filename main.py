@@ -1,4 +1,4 @@
-from flask import Flask,render_template, redirect
+from flask import Flask,render_template, redirect,request
 from rocket import get_rp_jobs
 from wanted import get_wanted_jobs
 from saramin import get_saramin_jobs
@@ -12,4 +12,13 @@ app=Flask('esc_scraper')
 def home():
     return render_template('home.html')
 
+@app.route('/quasar529.github.io/WebScraper_ITJobs/report')
+def report():
+    word=request.args.get('word')
+    if word:
+        word=word.lower()
+        jobs=get_saramin_jobs(word)
+    return render_template('report.html',
+    searchingBy=word,jobs=jobs,resultNum=len(jobs))
+    
 app.run()
